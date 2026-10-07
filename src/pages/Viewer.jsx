@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 import "../styles/viewer.css";
@@ -16,7 +16,7 @@ function Page({ pdf, num, width, ratio }) {
   useEffect(() => {
     const io = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { rootMargin: "700px 0px" }
+      { rootMargin: "400px 0px" }
     );
     io.observe(wrap.current);
     return () => io.disconnect();
@@ -31,7 +31,7 @@ function Page({ pdf, num, width, ratio }) {
       if (dead) return;
       const base = page.getViewport({ scale: 1 });
       const scale = width / base.width;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const vp = page.getViewport({ scale: scale * dpr });
       const c = canvas.current;
       if (!c) return;
@@ -80,14 +80,14 @@ export default function Viewer() {
     if (!file.startsWith("/files/")) { setErr("This file cannot be opened here."); return; }
     setPdf(null);
     setErr("");
-    const task = pdfjs.getDocument({ url: file });
+    const task = pdfjs.getDocument({ url: file, disableAutoFetch: true, disableStream: false, rangeChunkSize: 262144 });
     task.onProgress = (p) => { if (p.total) setPct(Math.round((p.loaded / p.total) * 100)); };
     task.promise
       .then(async (d) => {
+        setPdf(d);
         const p1 = await d.getPage(1);
         const v = p1.getViewport({ scale: 1 });
         setRatio(v.height / v.width);
-        setPdf(d);
       })
       .catch(() => setErr("Could not open this PDF. Try the Download button."));
     return () => { task.destroy(); };
