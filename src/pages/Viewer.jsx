@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 import "../styles/viewer.css";
@@ -27,20 +27,24 @@ function Page({ pdf, num, width, ratio }) {
     let task = null;
     let dead = false;
     (async () => {
-      const page = await pdf.getPage(num);
-      if (dead) return;
-      const base = page.getViewport({ scale: 1 });
-      const scale = width / base.width;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const vp = page.getViewport({ scale: scale * dpr });
-      const c = canvas.current;
-      if (!c) return;
-      c.width = vp.width;
-      c.height = vp.height;
-      c.style.width = width + "px";
-      c.style.height = vp.height / dpr + "px";
-      task = page.render({ canvasContext: c.getContext("2d"), viewport: vp });
-      try { await task.promise; } catch (e) { /* cancelled */ }
+      try {
+        const page = await pdf.getPage(num);
+        if (dead) return;
+        const base = page.getViewport({ scale: 1 });
+        const scale = width / base.width;
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        const vp = page.getViewport({ scale: scale * dpr });
+        const c = canvas.current;
+        if (!c) return;
+        c.width = vp.width;
+        c.height = vp.height;
+        c.style.width = width + "px";
+        c.style.height = vp.height / dpr + "px";
+        task = page.render({ canvasContext: c.getContext("2d"), viewport: vp });
+        await task.promise;
+      } catch (e) {
+        /* cancelled or destroyed */
+      }
     })();
     return () => { dead = true; if (task) task.cancel(); };
   }, [visible, pdf, num, width]);
@@ -78,19 +82,33 @@ export default function Viewer() {
 
   useEffect(() => {
     if (!file.startsWith("/files/")) { setErr("This file cannot be opened here."); return; }
+    let cancelled = false;
     setPdf(null);
     setErr("");
-    const task = pdfjs.getDocument({ url: file, disableAutoFetch: true, disableStream: false, rangeChunkSize: 262144 });
-    task.onProgress = (p) => { if (p.total) setPct(Math.round((p.loaded / p.total) * 100)); };
+    setPct(0);
+    const task = pdfjs.getDocument({
+      url: file,
+      disableAutoFetch: true,
+      disableStream: false,
+      rangeChunkSize: 262144,
+    });
+    task.onProgress = (p) => {
+      if (!cancelled && p.total) setPct(Math.round((p.loaded / p.total) * 100));
+    };
     task.promise
       .then(async (d) => {
+        if (cancelled) return;
         setPdf(d);
-        const p1 = await d.getPage(1);
-        const v = p1.getViewport({ scale: 1 });
-        setRatio(v.height / v.width);
+        try {
+          const p1 = await d.getPage(1);
+          const v = p1.getViewport({ scale: 1 });
+          if (!cancelled) setRatio(v.height / v.width);
+        } catch (e) { /* keep default ratio */ }
       })
-      .catch(() => setErr("Could not open this PDF. Try the Download button."));
-    return () => { task.destroy(); };
+      .catch(() => {
+        if (!cancelled) setErr("Could not open this PDF. Try the Download button.");
+      });
+    return () => { cancelled = true; task.destroy(); };
   }, [file]);
 
   return (
