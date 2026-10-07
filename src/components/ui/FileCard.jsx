@@ -1,12 +1,16 @@
-﻿const IMAGES = ["jpg", "jpeg", "png", "webp"];
+﻿import { Link } from "react-router-dom";
+
+const IMAGES = ["jpg", "jpeg", "png", "webp"];
 
 export default function FileCard({ item }) {
   const isLink = item.external;
   const isDrive = (item.file || "").includes("drive.google.com");
   const ext = isDrive || isLink ? "" : (item.file.split("?")[0].split(".").pop() || "").toLowerCase();
-  const canPreview = !isLink && (isDrive || ext === "pdf" || IMAGES.includes(ext));
+  const isPdf = ext === "pdf";
+  const otherPreview = isDrive || IMAGES.includes(ext);
   const dl = item.download || item.file;
   const fileName = decodeURIComponent((item.file || "").split("/").pop() || item.title);
+  const viewUrl = "/view?file=" + encodeURIComponent(item.file) + "&title=" + encodeURIComponent(item.title);
 
   return (
     <article className="file-card">
@@ -19,7 +23,8 @@ export default function FileCard({ item }) {
       </div>
       <div className="file-actions">
         {isLink && <a className="btn" href={item.file} target="_blank" rel="noreferrer">Open link</a>}
-        {canPreview && <a className="btn" href={item.file} target="_blank" rel="noreferrer">Preview</a>}
+        {isPdf && <Link className="btn" to={viewUrl}>Preview</Link>}
+        {!isPdf && otherPreview && <a className="btn" href={item.file} target="_blank" rel="noreferrer">Preview</a>}
         {!isLink && <a className="btn btn-dark" href={dl} download={isDrive ? undefined : fileName}>Download</a>}
       </div>
     </article>

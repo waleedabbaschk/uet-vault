@@ -1,4 +1,4 @@
-﻿import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SmoothScroll from "./components/effects/SmoothScroll.jsx";
 import ScrollToTop from "./components/effects/ScrollToTop.jsx";
 import Navbar from "./components/layout/Navbar.jsx";
@@ -11,6 +11,7 @@ import Library from "./pages/Library.jsx";
 import About from "./pages/About.jsx";
 import Contribute from "./pages/Contribute.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Viewer from "./pages/Viewer.jsx";
 import "./styles/pages.css";
 import "./styles/polish.css";
 
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/library" element={<Library />} />
         <Route path="/about" element={<About />} />
         <Route path="/contribute" element={<Contribute />} />
+        <Route path="/view" element={<Viewer />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
