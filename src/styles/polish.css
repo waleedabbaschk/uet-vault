@@ -1,0 +1,56 @@
+﻿::selection{background:var(--orange);color:#fff}
+html{scroll-behavior:auto}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+.page{animation:pageIn .5s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal,.page{opacity:1;transform:none;transition:none;animation:none}}
+
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.14em;opacity:.8;margin-bottom:10px}
+.lead{max-width:680px;line-height:1.7;font-size:1.05rem;margin-bottom:40px;opacity:.85}
+.sub-title{font-size:1.5rem;font-weight:800;margin:48px 0 16px;letter-spacing:-.02em}
+.plain-list{list-style:none;display:grid;gap:10px;margin-bottom:32px}
+.plain-list li{padding:14px 16px;border:1.5px solid var(--ink);background:#fff;font-weight:600}
+.about .row{margin-top:32px}
+
+.form{display:grid;gap:18px;max-width:560px}
+.field{display:grid;gap:6px;font-weight:700;font-size:.85rem}
+.field input,.field select,.field textarea{padding:13px 14px;font:inherit;font-weight:500;border:1.5px solid var(--ink);background:#fff;width:100%}
+.note{font-size:.78rem;opacity:.6;line-height:1.5}
+
+.notfound{display:grid;align-content:center;justify-items:start}
+.big404{font-size:clamp(6rem,22vw,16rem);font-weight:800;line-height:.9;color:var(--orange);letter-spacing:-.05em}
+
+.btn:focus-visible,.tab:focus-visible{outline-offset:3px}
+
+
+/* ---- fixes ---- */
+html{scrollbar-color:var(--ink) var(--cream);scrollbar-width:auto}
+.page{min-height:68vh}
+
+.tab{display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.tab:hover{background:var(--ink);color:#fff}
+.tab small{min-width:22px;height:22px;padding:0 6px;display:inline-grid;place-items:center;border-radius:99px;background:rgba(11,11,12,.12);font-family:system-ui,sans-serif;font-size:.72rem;font-weight:700;opacity:1;margin:0;font-variant-numeric:tabular-nums}
+.tab:hover small{background:rgba(255,255,255,.25)}
+.tab.active small{background:var(--orange);color:#fff}
+
+.empty{padding:64px 20px;background:rgba(11,11,12,.03);border:1.5px dashed var(--ink);font-weight:600;opacity:1}
+
+.footer{display:grid;grid-template-columns:1fr auto;gap:12px 40px;align-items:center;padding:40px 6vw;background:var(--ink);color:#fff;border-top:0;opacity:1;font-size:.9rem}
+.footer b{color:var(--orange)}
+.footer a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);transition:.2s}
+.footer a:hover{color:var(--orange);border-color:var(--orange)}
+@media(max-width:760px){.footer{grid-template-columns:1fr}}
+
+.faq-q{transition:color .2s}
+.faq-q:hover{color:var(--orange)}
+.faq-q span:last-child{font-size:1.6rem;font-weight:400;line-height:1}
+.faq-a{animation:pageIn .3s ease both}
+
+.file-card{transition:.2s}
+.file-card:hover{transform:translateY(-2px);box-shadow:5px 5px 0 var(--orange)}
+.nav-links a{white-space:nowrap;transition:.2s}
+.nav-links a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nav.on-hero .nav-links a:hover{background:#fff;color:var(--ink);border-color:#fff}

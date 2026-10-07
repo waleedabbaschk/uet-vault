@@ -1,0 +1,15 @@
+﻿.nav{transition:background .3s,color .3s,box-shadow .3s}
+.nav:not(.on-hero){box-shadow:0 1px 0 var(--line)}
+.a-group{margin-bottom:40px}
+.a-title{font-size:1.4rem;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.a-count{font-size:.75rem;background:var(--ink);color:#fff;padding:3px 9px}
+.a-card{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;padding:18px 20px;border:1.5px solid var(--ink);border-left:6px solid var(--orange);background:#fff}
+.a-main{display:grid;gap:6px;flex:1;min-width:220px}
+.a-main h3{font-size:1.05rem}
+.a-main p{font-size:.9rem;opacity:.8;line-height:1.5}
+.a-badge{justify-self:start;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--cream);border:1px solid var(--ink);padding:3px 8px}
+.a-side{display:grid;gap:8px;justify-items:end}
+.a-due{font-size:.78rem;font-weight:700;padding:6px 10px;border:1.5px solid var(--ink)}
+.a-due.ok{background:#e6f4ea}
+.a-due.soon{background:#fff3cd}
+.a-due.late{background:#ffd9d4}
