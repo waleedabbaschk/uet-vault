@@ -145,3 +145,15 @@ html,body{max-width:100%;overflow-x:hidden}
   .hero-info p:last-child{display:block;font-size:.88rem;opacity:.85}
   .hero-cta{position:relative;z-index:4;left:auto;right:auto;bottom:auto;margin:0;padding:6px 5vw 30px;background:var(--ink)}
 }
+
+/* ---- mobile hero: text below the photo ---- */
+@media(max-width:760px){
+  .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;padding-top:132px}
+  .hero-title{position:relative;z-index:1;top:auto;left:auto;transform:none;margin:0 5vw;font-size:17vw}
+  .hero-img{position:relative;z-index:2;left:auto;right:auto;bottom:auto;margin:-9vw auto 0;display:block;width:100%;max-width:440px;height:auto;object-fit:contain;object-position:50% 100%}
+  .rain-panel{top:70px}
+  .hero-info{position:relative;z-index:4;left:auto;bottom:auto;max-width:none;margin:0;padding:26px 5vw 6px;background:var(--ink);color:#fff}
+  .hero-info h2{font-size:1.35rem}
+  .hero-info p:last-child{display:block;font-size:.88rem;opacity:.85}
+  .hero-cta{position:relative;z-index:4;left:auto;right:auto;bottom:auto;margin:0;padding:6px 5vw 30px;background:var(--ink)}
+}
