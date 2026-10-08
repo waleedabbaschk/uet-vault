@@ -1,0 +1,16 @@
+{
+  "name": "UET Vault",
+  "short_name": "UET Vault",
+  "description": "Free notes, slides and books for UET Taxila CS students",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ff3d00",
+  "theme_color": "#ff3d00",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
