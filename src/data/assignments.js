@@ -1,3 +1,170 @@
-﻿// Add assignments here later. Delete an entry when you no longer want it on the site.
-// { title: "Assignment 1", subject: "calculus", date: "2026-10-07", due: "2026-10-10", details: "", link: "" },
-export const assignments = [];
+// One entry per assignment. Delete an entry when you no longer want it on the site.
+// sections: which CS sections it applies to ("A", "B", "C")
+// date: the day it was given (YYYY-MM-DD)   due: optional deadline (YYYY-MM-DD)
+// points: optional list of tasks   example: optional worked example steps
+// quote: optional text students need to copy   note: optional highlighted note
+// tags: optional small labels   link: optional link (Drive etc.)
+export const assignments = [
+  {
+    id: "ict-1",
+    title: "ICT Assignment 1: Input devices",
+    subject: "ict",
+    sections: ["C"],
+    date: "2026-10-08",
+    details: "Write down 10 manual input devices and 10 automatic input devices.",
+  },
+  {
+    id: "ict-2",
+    title: "ICT Assignment 2: Linux vs Windows",
+    subject: "ict",
+    sections: ["C"],
+    date: "2026-10-08",
+    details: "Write down 12 differences between the Linux and Windows operating systems.",
+  },
+  {
+    id: "ict-3",
+    title: "ICT Assignment 3: QR code and Barcode",
+    subject: "ict",
+    sections: ["C"],
+    date: "2026-10-08",
+    details: "Using the information below, create a QR code and a Barcode.",
+    points: [
+      "Name",
+      "Father's name",
+      "Roll number",
+      "Registration number",
+      "Email address",
+      "Home address",
+      "Aggregate",
+    ],
+    note: "The messages in the group listed slightly different fields (for example registration number and home address). Confirm the final list with your teacher.",
+  },
+  {
+    id: "ict-4",
+    title: "ICT Assignment 4: Additive and subtractive colour",
+    subject: "ict",
+    sections: ["C"],
+    date: "2026-10-08",
+    details:
+      "Describe the additive and subtractive nature of colour. Also write the colour combinations used for display and the colour combinations used for printing.",
+  },
+  {
+    id: "ict-lab-word",
+    title: "ICT Lab: MS Word tasks",
+    subject: "ict-lab",
+    sections: ["C"],
+    date: "2026-10-08",
+    details:
+      "Create the following structure in MS Word. The first seven steps use the paragraph below.",
+    points: [
+      "Copy the text below and paste it in your document.",
+      "Copy the last sentence (\"Today's computers have both kinds of programming.\") to the beginning of the first paragraph.",
+      "Change the typeface of the entire document to 11 point Verdana.",
+      "Change all occurrences of the word computer to workstation.",
+      "Change the spacing of the entire document from single to 1.5.",
+      "Change the alignment of the entire document to Justify.",
+      "Set the phrases logic circuitry and microprocessors in italic.",
+      "Insert a table of contents that gives the reference to the different tasks.",
+      "Write your name and registration number, and insert a footnote that shows your academic qualification.",
+      "Write on any topic of your choice and insert a comment (not more than three lines).",
+      "Practice comparing any two documents and using Spelling & Grammar.",
+    ],
+    quote:
+      "A computer is a device that accepts information (in the form of digitalized data) and manipulates it for some result based on a program or sequence of instructions on how the data is to be processed.\n\nComplex computers also include the means for storing data (including the program, which is also a form of data) for some necessary duration. A program may be invariable and built into the computer (and called logic circuitry as it is on microprocessors) or different programs may be provided to the computer (loaded into its storage and then started by an administrator or user). Today's computers have both kinds of programming.",
+  },
+  {
+    id: "ict-lab-access",
+    title: "Database practical (MS Access)",
+    subject: "ict-lab",
+    sections: ["C"],
+    date: "2026-10-08",
+    details:
+      "Scenario: a single flat-file table with 45 columns (20 Personal, 10 Academic, 10 Financial, 5 General). Complete these tasks in MS Access.",
+    points: [
+      "Normalize the data: break the single table into 3 related tables (Personal, Academic, Financial) and link them with a primary key such as StudentID.",
+      "ER diagram: draw the Entity-Relationship diagram showing the links between your new tables.",
+      "Calculate cost: run a calculated query to find the total fee/cost for any 5 specific students.",
+      "Final print: print your ER diagram and the 5-student query results to submit to Sir.",
+    ],
+    tags: ["Printout"],
+  },
+  {
+    id: "pf-lab-1",
+    title: "PF Lab: 5 problems, step by step",
+    subject: "pf-lab",
+    sections: ["A", "B", "C"],
+    date: "2026-10-08",
+    details:
+      "Solve these 5 problems step by step in English-like words, explaining clearly what happens at each step. No code is required.",
+    points: [
+      "Check if a given number is Even or Odd.",
+      "Check if a given number is Prime.",
+      "Leap year check.",
+      "Find the largest of three numbers.",
+      "Simple calculator.",
+    ],
+    example: [
+      "Start the program.",
+      "Ask the user to enter the first number.",
+      "Ask the user to enter the second number.",
+      "Take both numbers as input.",
+      "Add the two numbers.",
+      "Display the result.",
+      "End the program.",
+    ],
+    exampleTitle: "Example: sum of two numbers",
+    note: "Write it in your register and bring it. No assignment sheet is needed, so solve the problems yourself. Five similar problems you have already solved are also acceptable, but these five are better.",
+    tags: ["All three sections", "Hand written"],
+  },
+  {
+    id: "ideology-1",
+    title: "Ideology Assignment 1: Write about your area",
+    subject: "ideology",
+    sections: ["C"],
+    date: "2026-10-08",
+    details:
+      "Write about the area, city or region where you live, in your own words, including its history and background (2-3 pages).",
+    tags: ["Hand written", "Submit next Friday"],
+  },
+  {
+    id: "ideology-2",
+    title: "Ideology Assignment 2: Political events 1857 to 1947",
+    subject: "ideology",
+    sections: ["C"],
+    date: "2026-10-08",
+    details:
+      "Describe the significant political events of Pakistan's history from 1857 to 1947, in chronological order. The events are:",
+    points: [
+      "War of Independence (1857)",
+      "Legislative Council Act (1862)",
+      "Urdu-Hindi controversy (1867)",
+      "Partition of Bengal and its annulment (1905)",
+      "Simla Deputation (1906)",
+      "Formation of the All India Muslim League (1906)",
+      "Minto-Morley Reforms (1909)",
+      "Lucknow Pact (1916)",
+      "Montagu-Chelmsford Reforms (1919)",
+      "Delhi Proposals (1927)",
+      "Simon Commission",
+      "Nehru Report (1928)",
+      "Quaid-e-Azam's Fourteen Points (1929)",
+      "Allahabad Address (1930)",
+      "Government of India Act (1935)",
+      "Pakistan Resolution (1940)",
+      "Election of 1945",
+      "Third June Plan (1947)",
+      "Radcliffe Award (1947)",
+      "Indian Independence Act (1947)",
+      "Transfer of power and creation of Pakistan",
+    ],
+  },
+  {
+    id: "calculus-hw",
+    title: "Calculus homework",
+    subject: "calculus",
+    sections: ["C"],
+    date: "2026-10-08",
+    details: "Revise the lecture given by Ma'am Yusra.",
+    tags: ["Homework"],
+  },
+];
