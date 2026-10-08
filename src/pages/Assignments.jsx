@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { assignments } from "../data/assignments.js";
 import { semesters } from "../data/semesters.js";
+import { crs } from "../data/crs.js";
 import "../styles/assignments.css";
 
-const SECTIONS = ["A", "B", "C"];
+const TABS = ["A", "B", "C", "help"];
+const intl = (p) => "92" + p.replace(/^0/, "");
+const pretty = (p) => p.slice(0, 4) + " " + p.slice(4);
 const subjects = semesters.flatMap((s) => s.subjects);
 const nameOf = (slug) => {
   const s = subjects.find((x) => x.slug === slug);
@@ -107,7 +110,8 @@ function Card({ a }) {
 
 export default function Assignments() {
   const [sp, setSp] = useSearchParams();
-  const sec = SECTIONS.includes(sp.get("section")) ? sp.get("section") : "C";
+  const sec = TABS.includes(sp.get("section")) ? sp.get("section") : "C";
+  const isHelp = sec === "help";
   const [subject, setSubject] = useState("all");
 
   const mine = assignments.filter((a) => a.sections.includes(sec));
@@ -125,43 +129,72 @@ export default function Assignments() {
       </p>
 
       <div className="asec-tabs" role="tablist" aria-label="Section">
-        {SECTIONS.map((s) => (
+        {TABS.map((s) => (
           <button
             key={s}
             role="tab"
             aria-selected={sec === s}
-            className={"asec-tab" + (sec === s ? " on" : "")}
+            className={"asec-tab" + (sec === s ? " on" : "") + (s === "help" ? " help" : "")}
             onClick={() => setSp({ section: s }, { replace: true })}
           >
-            <b>CS Section {s}</b>
-            <span>{count(s)} {count(s) === 1 ? "assignment" : "assignments"}</span>
+            <b>{s === "help" ? "Help" : "CS Section " + s}</b>
+            <span>
+              {s === "help"
+                ? "CR contacts"
+                : count(s) + (count(s) === 1 ? " assignment" : " assignments")}
+            </span>
           </button>
         ))}
       </div>
 
-      <div className="filters">
-        <select value={subject} onChange={(e) => setSubject(e.target.value)} aria-label="Subject">
-          <option value="all">All subjects</option>
-          {subjects.map((s) => <option key={s.slug} value={s.slug}>{s.name}</option>)}
-        </select>
-      </div>
+      {isHelp ? (
+        <section className="help">
+          <h2 className="a-title">Class representatives <span className="a-count">{crs.length}</span></h2>
+          <p className="help-sub">
+            Stuck with an assignment or missed an announcement? Message the CR of your section on WhatsApp.
+          </p>
+          <div className="cr-grid">
+            {crs.map((c) => (
+              <article className="cr-card" key={c.section}>
+                <span className="a-badge">CS Section {c.section}</span>
+                <h3 className="cr-name">{c.name}</h3>
+                <p className="cr-role">Class Representative (CR)</p>
+                <p className="cr-num">{pretty(c.phone)}</p>
+                <div className="cr-actions">
+                  <a className="btn btn-dark" href={"https://wa.me/" + intl(c.phone)} target="_blank" rel="noreferrer">WhatsApp</a>
+                  <a className="btn" href={"tel:+" + intl(c.phone)}>Call</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <>
+        <div className="filters">
+          <select value={subject} onChange={(e) => setSubject(e.target.value)} aria-label="Subject">
+            <option value="all">All subjects</option>
+            {subjects.map((s) => <option key={s.slug} value={s.slug}>{s.name}</option>)}
+          </select>
+        </div>
 
-      {list.length === 0 && (
-        <div className="empty">No assignments added for Section {sec} yet.</div>
+        {list.length === 0 && (
+          <div className="empty">No assignments added for Section {sec} yet.</div>
+        )}
+
+        {GROUPS.map(([key, label]) => {
+          const items = list.filter((a) => groupOf(a.date) === key);
+          if (items.length === 0) return null;
+          return (
+            <section className="a-group" key={key}>
+              <h2 className="a-title">{label} <span className="a-count">{items.length}</span></h2>
+              <div className="a-grid">
+                {items.map((a) => <Card key={a.id} a={a} />)}
+              </div>
+            </section>
+          );
+        })}
+        </>
       )}
-
-      {GROUPS.map(([key, label]) => {
-        const items = list.filter((a) => groupOf(a.date) === key);
-        if (items.length === 0) return null;
-        return (
-          <section className="a-group" key={key}>
-            <h2 className="a-title">{label} <span className="a-count">{items.length}</span></h2>
-            <div className="a-grid">
-              {items.map((a) => <Card key={a.id} a={a} />)}
-            </div>
-          </section>
-        );
-      })}
     </main>
   );
 }

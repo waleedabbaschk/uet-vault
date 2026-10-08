@@ -47,3 +47,19 @@
   .a-card{padding:18px 16px 14px}
   .a-grid{grid-template-columns:1fr}
 }
+/* ---- help tab + 4 tabs ---- */
+.asec-tabs{grid-template-columns:repeat(4,1fr)}
+.asec-tab.help{border-color:var(--orange)}
+.asec-tab.help b{color:var(--orange)}
+.asec-tab.help.on{background:var(--orange);border-color:var(--orange);box-shadow:5px 5px 0 var(--ink)}
+.asec-tab.help.on b{color:#fff}
+.help-sub{font-size:1rem;line-height:1.6;opacity:.8;max-width:560px;margin:-4px 0 22px}
+.cr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px}
+.cr-card{display:grid;gap:8px;padding:22px;background:var(--paper);border:1.5px solid var(--ink);border-left:8px solid var(--orange);transition:transform .2s,box-shadow .2s}
+.cr-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.cr-card .a-badge{justify-self:start}
+.cr-name{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.cr-role{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+.cr-num{font-size:1.25rem;font-weight:800;letter-spacing:.04em;font-variant-numeric:tabular-nums;margin:8px 0 6px}
+.cr-actions{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:760px){.asec-tabs{grid-template-columns:repeat(2,1fr)}.asec-tab b{font-size:.95rem}.asec-tab span{font-size:.62rem}}
