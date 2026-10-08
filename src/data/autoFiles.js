@@ -36,6 +36,15 @@
         "date":  "2026-10-07"
     },
     {
+        "title":  "CAG Notes Till Week 4",
+        "semester":  1,
+        "subject":  "calculus",
+        "type":  "notes",
+        "group":  "",
+        "file":  "/files/semester-1/calculus/notes/CAG%20Notes%20Till%20Week%204.pdf",
+        "date":  "2026-10-08"
+    },
+    {
         "title":  "blue book of grammar and punctuation (1)",
         "semester":  1,
         "subject":  "english",
@@ -682,6 +691,15 @@
         "group":  "",
         "file":  "/files/semester-1/programming-fundamentals/books/c-%20programming%20ds%20malik%205th%20edition.pdf",
         "date":  "2026-10-07"
+    },
+    {
+        "title":  "Lecture 02 Programming Fundamentals",
+        "semester":  1,
+        "subject":  "programming-fundamentals",
+        "type":  "slides",
+        "group":  "",
+        "file":  "/files/semester-1/programming-fundamentals/slides/Lecture%2002%20Programming%20Fundamentals.pptx",
+        "date":  "2026-10-08"
     },
     {
         "title":  "Seerat e Mustafa   Maulana Idrees Kandhalvi",
