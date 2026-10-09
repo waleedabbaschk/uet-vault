@@ -1,0 +1,38 @@
+.ann-back{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(13,13,15,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:annFade .25s ease both}
+.ann{position:relative;display:flex;flex-direction:column;width:min(100%,640px);max-height:min(88vh,820px);max-height:min(88svh,820px);background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--orange);animation:annIn .38s cubic-bezier(.2,.9,.2,1) both}
+@keyframes annFade{from{opacity:0}to{opacity:1}}
+@keyframes annIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:none}}
+
+.ann-x{position:absolute;top:12px;right:12px;z-index:2;width:42px;height:42px;display:grid;place-items:center;background:#fff;color:var(--ink);border:1.5px solid var(--ink);cursor:pointer;transition:background .15s,color .15s,transform .15s}
+.ann-x:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+.ann-x:active{transform:scale(.94)}
+
+.ann-head{padding:24px 66px 14px 24px;display:grid;gap:10px}
+.ann-pill{justify-self:start;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--orange);color:#fff;padding:4px 10px}
+.ann-head h2{font-size:clamp(1.35rem,4.6vw,1.8rem);line-height:1.1;letter-spacing:-.025em}
+.ann-intro{font-size:.92rem;line-height:1.55;opacity:.8}
+
+.ann-body{overflow-y:auto;overscroll-behavior:contain;padding:4px 24px 10px;display:grid;gap:12px;align-content:start}
+.ann-g{padding:14px 16px;background:var(--cream);border:1.5px solid var(--ink);border-left:6px solid var(--orange);display:grid;gap:8px}
+.ann-g-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ann-badge{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:4px 9px}
+.ann-by{font-size:.72rem;font-weight:700;letter-spacing:.04em;opacity:.65}
+.ann-g ul{list-style:none;display:grid;gap:6px}
+.ann-g li{position:relative;padding-left:16px;font-size:.9rem;line-height:1.5}
+.ann-g li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--orange)}
+.ann-flag{justify-self:start;font-size:.78rem;font-weight:800;padding:5px 10px;background:#fff3cd;border:1.5px solid var(--ink)}
+
+.ann-foot{padding:14px 24px 20px;border-top:1px solid var(--line);display:grid;gap:12px}
+.ann-foot p{font-size:.8rem;line-height:1.5;opacity:.65}
+.ann-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+@media(max-width:640px){
+  .ann-back{align-items:flex-end;padding:0}
+  .ann{width:100%;max-height:92vh;max-height:92svh;border-width:2px 0 0;box-shadow:none;animation-name:annSheet}
+  .ann-head{padding:20px 62px 12px 18px}
+  .ann-body{padding:4px 18px 10px}
+  .ann-foot{padding:12px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+  .ann-actions .btn{flex:1;text-align:center}
+}
+@keyframes annSheet{from{transform:translateY(100%)}to{transform:none}}
+@media(prefers-reduced-motion:reduce){.ann,.ann-back{animation:none}}

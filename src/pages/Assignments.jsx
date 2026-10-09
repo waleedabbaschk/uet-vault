@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { assignments } from "../data/assignments.js";
 import { semesters } from "../data/semesters.js";
 import { crs } from "../data/crs.js";
+import { announcement } from "../data/announcement.js";
 import "../styles/assignments.css";
 
 const TABS = ["A", "B", "C", "help"];
@@ -61,9 +62,9 @@ function Card({ a }) {
   const due = dueInfo(a.due);
   const long = a.points && a.points.length > 8;
   return (
-    <article className="a-card">
+    <article className={"a-card" + (a.kind ? " " + a.kind : "")}>
       <div className="a-top">
-        <span className="a-badge">{nameOf(a.subject)}</span>
+        {a.kind && <span className={"a-kind " + a.kind}>{a.kind}</span>}<span className="a-badge">{nameOf(a.subject)}</span>
         {(a.tags || []).map((t) => (
           <span className="a-tag" key={t}>{t}</span>
         ))}
@@ -141,11 +142,18 @@ export default function Assignments() {
             <span>
               {s === "help"
                 ? "CR contacts"
-                : count(s) + (count(s) === 1 ? " assignment" : " assignments")}
+                : count(s) + (count(s) === 1 ? " item" : " items")}
             </span>
           </button>
         ))}
       </div>
+
+      {!isHelp && (
+        <div className="a-update">
+          <p><b>{announcement.label}:</b> {announcement.title}</p>
+          <button className="btn" onClick={() => window.dispatchEvent(new Event("uv-open-update"))}>Read</button>
+        </div>
+      )}
 
       {isHelp ? (
         <section className="help">

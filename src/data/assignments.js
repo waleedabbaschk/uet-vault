@@ -6,12 +6,52 @@
 // tags: optional small labels   link: optional link (Drive etc.)
 export const assignments = [
   {
+    id: "ict-theory-total",
+    kind: "notice",
+    title: "ICT Theory: 5 assignments in total",
+    subject: "ict",
+    sections: ["A", "B", "C"],
+    date: "2026-10-09",
+    details:
+      "A total of 5 assignments have been given so far (Sir Munawwar). You have to complete all 5. They will be submitted when the university physically opens.",
+  },
+  {
+    id: "ict-lab-3",
+    title: "ICT Lab 3: submit through the Google Form",
+    subject: "ict-lab",
+    sections: ["A", "B", "C"],
+    date: "2026-10-09",
+    due: "2026-10-11",
+    details: "Submit ICT Lab 3 through the Google Form shared with you. ICT Lab 1 and Lab 2 are already submitted.",
+    tags: ["Google Form", "Sunday 2 PM"],
+  },
+  {
+    id: "ict-quiz-1",
+    kind: "quiz",
+    title: "ICT Theory quiz",
+    subject: "ict",
+    sections: ["A", "B", "C"],
+    date: "2026-10-09",
+    details: "There will be a quiz from the first 3 lectures in the next ICT Theory class (Sir Munawwar).",
+    tags: ["Lectures 1 to 3"],
+  },
+  {
+    id: "islamiyat-off",
+    kind: "notice",
+    title: "Islamiyat class is off on Friday",
+    subject: "islamiyat",
+    sections: ["A", "B", "C"],
+    date: "2026-10-09",
+    details: "There is no Islamiyat class on Friday.",
+  },
+  {
     id: "ict-1",
     title: "ICT Assignment 1: Input devices",
     subject: "ict",
     sections: ["A", "B", "C"],
     date: "2026-10-08",
     details: "Write down 10 manual input devices and 10 automatic input devices.",
+    tags: ["Submit when university opens"],
   },
   {
     id: "ict-2",
@@ -20,6 +60,7 @@ export const assignments = [
     sections: ["A", "B", "C"],
     date: "2026-10-08",
     details: "Write down 12 differences between the Linux and Windows operating systems.",
+    tags: ["Submit when university opens"],
   },
   {
     id: "ict-3",
@@ -38,6 +79,7 @@ export const assignments = [
       "Aggregate",
     ],
     note: "The messages in the group listed slightly different fields (for example registration number and home address). Confirm the final list with your teacher.",
+    tags: ["Submit when university opens"],
   },
   {
     id: "ict-4",
@@ -47,6 +89,7 @@ export const assignments = [
     date: "2026-10-08",
     details:
       "Describe the additive and subtractive nature of colour. Also write the colour combinations used for display and the colour combinations used for printing.",
+    tags: ["Submit when university opens"],
   },
   {
     id: "ict-lab-word",
@@ -113,8 +156,8 @@ export const assignments = [
       "End the program.",
     ],
     exampleTitle: "Example: sum of two numbers",
-    note: "Write it in your register and bring it. No assignment sheet is needed, so solve the problems yourself. Five similar problems you have already solved are also acceptable, but these five are better.",
-    tags: ["All three sections", "Hand written"],
+    note: "Write it in your register and bring it. No assignment sheet is needed, so solve the problems yourself. Five similar problems you have already solved are also acceptable, but these five are better. Show it to Sajid Bhai when the university physically opens.",
+    tags: ["All three sections", "Hand written", "Show to Sajid Bhai"],
   },
   {
     id: "ideology-1",
@@ -124,7 +167,8 @@ export const assignments = [
     date: "2026-10-08",
     details:
       "Write about the area, city or region where you live, in your own words, including its history and background (2-3 pages).",
-    tags: ["Hand written", "Submit next Friday"],
+    note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
+    tags: ["Hand written", "Online (Teams)"],
   },
   {
     id: "ideology-2",
@@ -134,6 +178,8 @@ export const assignments = [
     date: "2026-10-08",
     details:
       "Describe the significant political events of Pakistan's history from 1857 to 1947, in chronological order. The events are:",
+    note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
+    tags: ["Online (Teams)"],
     points: [
       "War of Independence (1857)",
       "Legislative Council Act (1862)",

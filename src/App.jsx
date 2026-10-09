@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import SmoothScroll from "./components/effects/SmoothScroll.jsx";
 import ScrollToTop from "./components/effects/ScrollToTop.jsx";
 import Loader from "./components/effects/Loader.jsx";
+import Announcement from "./components/ui/Announcement.jsx";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Home from "./pages/Home.jsx";
@@ -22,6 +23,7 @@ function seen() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
   const [phase, setPhase] = useState(() =>
     window.location.pathname === "/" && !seen() ? "loading" : "done"
   );
@@ -52,6 +54,7 @@ export default function App() {
           <Footer />
         </SmoothScroll>
       )}
+      {phase === "done" && pathname !== "/view" && <Announcement />}
     </>
   );
 }
