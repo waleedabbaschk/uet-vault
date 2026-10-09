@@ -6,16 +6,6 @@
 // tags: optional small labels   link: optional link (Drive etc.)
 export const assignments = [
   {
-    id: "ict-theory-total",
-    kind: "notice",
-    title: "ICT Theory: 5 assignments in total",
-    subject: "ict",
-    sections: ["A", "B", "C"],
-    date: "2026-10-09",
-    details:
-      "A total of 5 assignments have been given so far (Sir Munawwar). You have to complete all 5. They will be submitted when the university physically opens.",
-  },
-  {
     id: "ict-lab-3",
     title: "ICT Lab 3: submit through the Google Form",
     subject: "ict-lab",
@@ -24,25 +14,6 @@ export const assignments = [
     due: "2026-10-11",
     details: "Submit ICT Lab 3 through the Google Form shared with you. ICT Lab 1 and Lab 2 are already submitted.",
     tags: ["Google Form", "Sunday 2 PM"],
-  },
-  {
-    id: "ict-quiz-1",
-    kind: "quiz",
-    title: "ICT Theory quiz",
-    subject: "ict",
-    sections: ["A", "B", "C"],
-    date: "2026-10-09",
-    details: "There will be a quiz from the first 3 lectures in the next ICT Theory class (Sir Munawwar).",
-    tags: ["Lectures 1 to 3"],
-  },
-  {
-    id: "islamiyat-off",
-    kind: "notice",
-    title: "Islamiyat class is off on Friday",
-    subject: "islamiyat",
-    sections: ["A", "B", "C"],
-    date: "2026-10-09",
-    details: "There is no Islamiyat class on Friday.",
   },
   {
     id: "ict-1",
@@ -168,6 +139,7 @@ export const assignments = [
     details:
       "Write about the area, city or region where you live, in your own words, including its history and background (2-3 pages).",
     note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
+    due: "2026-10-14",
     tags: ["Hand written", "Online (Teams)"],
   },
   {
@@ -179,6 +151,7 @@ export const assignments = [
     details:
       "Describe the significant political events of Pakistan's history from 1857 to 1947, in chronological order. The events are:",
     note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
+    due: "2026-10-14",
     tags: ["Online (Teams)"],
     points: [
       "War of Independence (1857)",

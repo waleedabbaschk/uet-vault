@@ -1,6 +1,6 @@
 // Popup shown when the site opens. Change "id" to show a NEW update to everybody again.
 export const announcement = {
-  id: "final-update-1",
+  id: "final-update-2",
   label: "Latest update",
   title: "Final assignment & quiz update",
   intro: "Assalam-o-Alaikum everyone. Here is the final update regarding assignments and quizzes.",
@@ -24,6 +24,7 @@ export const announcement = {
     },
     {
       label: "Ideology",
+      flag: "Last date: 14 October",
       lines: [
         "Complete both assignments.",
         "They will be submitted online.",
