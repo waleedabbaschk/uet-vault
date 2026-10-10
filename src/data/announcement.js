@@ -21,6 +21,7 @@ export const announcement = {
         "ICT Lab 3: submit it through the Google Form shared with you.",
       ],
       flag: "Deadline: Sunday, 2 PM",
+      link: { label: "Open submission form", url: "https://docs.google.com/forms/d/e/1FAIpQLSexy4KGPn9ylWTa5PhVvf--grVqab6s_vyy_bMMyLE41BNKAw/viewform?usp=send_form" },
     },
     {
       label: "Ideology",

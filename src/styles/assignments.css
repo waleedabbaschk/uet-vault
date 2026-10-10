@@ -72,3 +72,6 @@
 .a-kind.notice{background:#fff;border-style:dashed}
 .a-card.quiz{border-left-color:var(--cyan)}
 .a-card.notice{border-left-color:var(--ink)}
+/* ---- submitted tag + link buttons ---- */
+.a-tag.done{background:#e6f4ea;border-color:#1f7a3a;color:#14532d}
+.a-links{display:flex;gap:10px;flex-wrap:wrap}

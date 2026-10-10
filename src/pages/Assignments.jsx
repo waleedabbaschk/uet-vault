@@ -66,7 +66,7 @@ function Card({ a }) {
       <div className="a-top">
         {a.kind && <span className={"a-kind " + a.kind}>{a.kind}</span>}<span className="a-badge">{nameOf(a.subject)}</span>
         {(a.tags || []).map((t) => (
-          <span className="a-tag" key={t}>{t}</span>
+          <span className={"a-tag" + (t === "Submitted" ? " done" : "")} key={t}>{t}</span>
         ))}
         {due && <span className={"a-due " + due.cls}>{due.text}</span>}
       </div>
@@ -104,6 +104,7 @@ function Card({ a }) {
       <div className="a-foot">
         <span className="a-date">Given: {fmt(a.date)}{a.due ? " | Deadline: " + fmt(a.due) : ""}</span>
         {a.link && <a className="btn btn-dark" href={a.link} target="_blank" rel="noreferrer">Open</a>}
+        {a.links && <span className="a-links">{a.links.map((l, i) => <a key={l.url} className={"btn" + (i === 0 ? " btn-dark" : "")} href={l.url} target="_blank" rel="noreferrer">{l.label}</a>)}</span>}
       </div>
     </article>
   );

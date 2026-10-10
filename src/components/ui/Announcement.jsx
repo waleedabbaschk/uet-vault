@@ -76,6 +76,7 @@ export default function Announcement() {
                 {g.lines.map((l) => <li key={l}>{l}</li>)}
               </ul>
               {g.flag && <p className="ann-flag">{g.flag}</p>}
+              {g.link && <a className="btn btn-dark ann-link" href={g.link.url} target="_blank" rel="noreferrer">{g.link.label}</a>}
             </section>
           ))}
         </div>

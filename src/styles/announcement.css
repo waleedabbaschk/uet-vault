@@ -36,3 +36,4 @@
 }
 @keyframes annSheet{from{transform:translateY(100%)}to{transform:none}}
 @media(prefers-reduced-motion:reduce){.ann,.ann-back{animation:none}}
+.ann-link{justify-self:start;padding:10px 16px}

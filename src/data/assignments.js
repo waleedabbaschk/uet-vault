@@ -4,17 +4,9 @@
 // points: optional list of tasks   example: optional worked example steps
 // quote: optional text students need to copy   note: optional highlighted note
 // tags: optional small labels   link: optional link (Drive etc.)
+// links: optional list of buttons [{ label, url }]
+// kind: "assignment" (default) | "quiz" | "notice"
 export const assignments = [
-  {
-    id: "ict-lab-3",
-    title: "ICT Lab 3: submit through the Google Form",
-    subject: "ict-lab",
-    sections: ["A", "B", "C"],
-    date: "2026-10-09",
-    due: "2026-10-11",
-    details: "Submit ICT Lab 3 through the Google Form shared with you. ICT Lab 1 and Lab 2 are already submitted.",
-    tags: ["Google Form", "Sunday 2 PM"],
-  },
   {
     id: "ict-1",
     title: "ICT Assignment 1: Input devices",
@@ -63,6 +55,22 @@ export const assignments = [
     tags: ["Submit when university opens"],
   },
   {
+    id: "ict-5",
+    title: "ICT Assignment 5: Database practical (MS Access)",
+    subject: "ict",
+    sections: ["A", "B", "C"],
+    date: "2026-10-08",
+    details:
+      "Scenario: a single flat-file table with 45 columns (20 Personal, 10 Academic, 10 Financial, 5 General). Complete these tasks in MS Access.",
+    points: [
+      "Normalize the data: break the single table into 3 related tables (Personal, Academic, Financial) and link them with a primary key such as StudentID.",
+      "ER diagram: draw the Entity-Relationship diagram showing the links between your new tables.",
+      "Calculate cost: run a calculated query to find the total fee/cost for any 5 specific students.",
+      "Final print: print your ER diagram and the 5-student query results to submit to Sir.",
+    ],
+    tags: ["Printout", "Submit when university opens"],
+  },
+  {
     id: "ict-lab-word",
     title: "ICT Lab: MS Word tasks",
     subject: "ict-lab",
@@ -85,22 +93,68 @@ export const assignments = [
     ],
     quote:
       "A computer is a device that accepts information (in the form of digitalized data) and manipulates it for some result based on a program or sequence of instructions on how the data is to be processed.\n\nComplex computers also include the means for storing data (including the program, which is also a form of data) for some necessary duration. A program may be invariable and built into the computer (and called logic circuitry as it is on microprocessors) or different programs may be provided to the computer (loaded into its storage and then started by an administrator or user). Today's computers have both kinds of programming.",
+    tags: ["Submitted"],
   },
   {
-    id: "ict-lab-access",
-    title: "Database practical (MS Access)",
+    id: "ict-lab-ppt",
+    title: "ICT Lab: MS PowerPoint tasks",
     subject: "ict-lab",
     sections: ["A", "B", "C"],
     date: "2026-10-08",
-    details:
-      "Scenario: a single flat-file table with 45 columns (20 Personal, 10 Academic, 10 Financial, 5 General). Complete these tasks in MS Access.",
+    details: "From the ICT Lab Manual (page 62): complete these MS PowerPoint tasks.",
     points: [
-      "Normalize the data: break the single table into 3 related tables (Personal, Academic, Financial) and link them with a primary key such as StudentID.",
-      "ER diagram: draw the Entity-Relationship diagram showing the links between your new tables.",
-      "Calculate cost: run a calculated query to find the total fee/cost for any 5 specific students.",
-      "Final print: print your ER diagram and the 5-student query results to submit to Sir.",
+      "Task 1 (Create Photo Album & Hyperlink): insert one new slide and put a text, for example \"My Photo Album\".",
+      "Create one photo album and adjust your text and your photos.",
+      "Save your photo album with a new file.",
+      "Make a hyperlink to your photo using the text \"My Photo Album\".",
+      "Task 2: convert the SmartArt shown in the lab manual (Selena and Nick, with ICS/Civil Engineering, FSC and Matric) into plain text and write down how you did this.",
+      "Task 3: see the ICT Lab Manual (pages 62 to 63). It uses the Images group.",
+      "Insert the equation shown in the manual (the quadratic formula with a summation term).",
+      "Task 5: insert the slide number, footer (your merit number) and date.",
+      "Task 6: write your name and rotate it to 270 degrees.",
     ],
-    tags: ["Printout"],
+    tags: ["Submitted"],
+  },
+  {
+    id: "ict-lab-3",
+    title: "ICT Lab 3: MS Excel (Lab 9 and Lab 10)",
+    subject: "ict-lab",
+    sections: ["A", "B", "C"],
+    date: "2026-10-09",
+    due: "2026-10-11",
+    details:
+      "Complete the Lab 9 and Lab 10 exercises in MS Excel (from the ICT Lab Manual) and submit your file through the Google Form before Sunday, 2:00 PM. ICT Lab 1 and Lab 2 are already submitted.",
+    points: [
+      "Lab 9, Exercise 1: Auto-complete",
+      "Lab 9, Exercise 2: Auto-complete",
+      "Lab 9, Exercise 3: Currency formatting",
+      "Lab 9, Exercise 4: Date formatting",
+      "Lab 9, Exercise 5: Basic calculations and Excel functions",
+      "Lab 10, Exercise 1: Bar/Column chart",
+      "Lab 10, Exercise 2: Pie chart",
+      "Lab 10, Exercise 3: Pivot table",
+      "Lab 10, Exercise 4: Canada population",
+      "Lab 10, Exercise 5: Pivot table with dates and expenses",
+    ],
+    example: [
+      "Select your roll number.",
+      "Write your full name.",
+      "Upload your assignment file.",
+      "Write your name and roll number inside the assignment file too.",
+    ],
+    exampleTitle: "How to submit (Google Form)",
+    note: "Only submissions through the Google Form are accepted. Assignments sent to the CR/GR on WhatsApp will not be accepted. Submit only once. To revise before the deadline, submit the revised file again with the same details and message the person who shared the form. The form closes after the deadline (Sunday, 2:00 PM).",
+    tags: ["Google Form", "Sunday 2 PM"],
+    links: [
+      {
+        label: "Open Google Form",
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSexy4KGPn9ylWTa5PhVvf--grVqab6s_vyy_bMMyLE41BNKAw/viewform?usp=send_form",
+      },
+      {
+        label: "Exercises (docx)",
+        url: "/files/semester-1/ict-lab/notes/ICT%20Lab%209%20and%2010%20Exercises.docx",
+      },
+    ],
   },
   {
     id: "pf-lab-1",
@@ -136,10 +190,10 @@ export const assignments = [
     subject: "ideology",
     sections: ["A", "B", "C"],
     date: "2026-10-08",
+    due: "2026-10-14",
     details:
       "Write about the area, city or region where you live, in your own words, including its history and background (2-3 pages).",
     note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
-    due: "2026-10-14",
     tags: ["Hand written", "Online (Teams)"],
   },
   {
@@ -148,11 +202,9 @@ export const assignments = [
     subject: "ideology",
     sections: ["A", "B", "C"],
     date: "2026-10-08",
+    due: "2026-10-14",
     details:
       "Describe the significant political events of Pakistan's history from 1857 to 1947, in chronological order. The events are:",
-    note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
-    due: "2026-10-14",
-    tags: ["Online (Teams)"],
     points: [
       "War of Independence (1857)",
       "Legislative Council Act (1862)",
@@ -176,6 +228,8 @@ export const assignments = [
       "Indian Independence Act (1947)",
       "Transfer of power and creation of Pakistan",
     ],
+    note: "Submitted online. Ma'am will guide us about the submission on Teams, and the update will be shared in the group.",
+    tags: ["Online (Teams)"],
   },
   {
     id: "calculus-hw",
